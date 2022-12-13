@@ -22,6 +22,10 @@ public class DirectedGraph<T> implements GraphInterface<T>
         return addOutcome == null; // Was addition to dictionary successful?
     } // end addVertex
 
+    public boolean removeVertex(T vertexLabel){
+        VertexInterface<T> removedVertex = vertices.remove(vertexLabel);
+        return removedVertex == null;
+    }
     public boolean addEdge(T begin, T end, double edgeWeight)
     {
         boolean result = false;
