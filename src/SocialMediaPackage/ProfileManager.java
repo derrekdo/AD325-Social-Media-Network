@@ -217,6 +217,7 @@ public class ProfileManager {
                 networkOpened = false;
             }
         }
+        scanner.close();
     }
 
     /**
@@ -245,8 +246,9 @@ public class ProfileManager {
                 (3) Display All Profiles
                 (4) Display All Users
                 (5) View Friends
-                (6) Delete Account
-                (7) Log Out""";
+                (6) Change Status
+                (7) Delete Account
+                (8) Log Out""";
 
         System.out.println("Log on to Which Account?");
         System.out.println(users);
