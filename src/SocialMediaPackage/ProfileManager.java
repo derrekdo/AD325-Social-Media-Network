@@ -210,6 +210,7 @@ public class ProfileManager {
                 signUp(scanner);
             }else if (Objects.equals(input, "Log in") || Objects.equals(input, "1")) {
                 logIn(scanner,prompt);
+                System.out.println("Logging Out . . .");
             }else{
                 System.out.println("Now Exiting . . .");
                 //the program ends

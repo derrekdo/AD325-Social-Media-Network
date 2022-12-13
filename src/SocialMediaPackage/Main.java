@@ -8,7 +8,6 @@ public class Main {
 
     }
 
-
     public static void createNetwork(ProfileManager socialNetwork){
         users(socialNetwork);
         friendships(socialNetwork);
@@ -25,7 +24,6 @@ public class Main {
         socialNetwork.createUser("Franky", "Male", 36, "Shipwright", "Online");
         socialNetwork.createUser("Brook", "Male", 90, "Musician", "Offline");
         socialNetwork.createUser("Jinbe", "Male", 46, "Helmsman", "Offline");
-
     }
 
     public static void friendships(ProfileManager socialNetwork){
