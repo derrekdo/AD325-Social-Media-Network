@@ -77,16 +77,16 @@ public class ProfileManager {
      * @param scanner takes in console input from user
      */
     private void setStatus(Scanner scanner){
-        String input = scanner.nextLine();
         System.out.println("(1) Online\n(2) Away\n(3) Do Not Disturb\n(4) Offline");
+        String input = scanner.nextLine();
 
-        if(Objects.equals(input, "Online") || Objects.equals(input, "1")){
+        if(Objects.equals(input, "1")){
             profiles.get(findUser(currentUser)).setStatusOnline();
-        }else if(Objects.equals(input, "Away") || Objects.equals(input, "2")){
+        }else if(Objects.equals(input, "2")){
             profiles.get(findUser(currentUser)).setStatusAway();
-        }else if(Objects.equals(input, "Do Not Disturb") || Objects.equals(input, "3")){
+        }else if(Objects.equals(input, "3")){
             profiles.get(findUser(currentUser)).setStatusDoNotDisturb();
-        }else if(Objects.equals(input, "Offline") || Objects.equals(input, "4")){
+        }else if(Objects.equals(input, "4")){
             profiles.get(findUser(currentUser)).setStatusOffline();
         }
     }
@@ -153,7 +153,7 @@ public class ProfileManager {
      * Displays an array list of all the users in the social network
      */
     public void displayUsers(){
-        System.out.println(users);
+        System.out.println("Users: " + users);
     }
 
     /**
@@ -196,7 +196,7 @@ public class ProfileManager {
         Scanner scanner = new Scanner(System.in);
         //checks if the app has been opened
         while(networkOpened) {
-            String prompt = "\nWhat Would You Like To Do:";
+            String prompt = "\nWhat Would You Like To Do (Select a number):";
             String options = "(1) Log in\n(2) Create New Account\n(3) Close";
 
             System.out.println(prompt);
@@ -206,9 +206,9 @@ public class ProfileManager {
 
             //Based on user input, the program will create or log on to an account
             //The user may also exit the app, thus ending the program
-            if (Objects.equals(input, "Create New Account") || Objects.equals(input, "2")) {
+            if (Objects.equals(input, "2")) {
                 signUp(scanner);
-            }else if (Objects.equals(input, "Log in") || Objects.equals(input, "1")) {
+            }else if(Objects.equals(input, "1")) {
                 logIn(scanner,prompt);
                 System.out.println("Logging Out . . .");
             }else{
@@ -266,7 +266,7 @@ public class ProfileManager {
         while(loggedIn){
             System.out.println(prompt);
             System.out.println(options);
-            options(scanner);
+            options(scanner, prompt);
         }
     }
 
@@ -282,29 +282,31 @@ public class ProfileManager {
      * Takes in the option selected and runs the method corresponding to it
      * @param scanner takes in user input
      */
-    private void options(Scanner scanner){
+    private void options(Scanner scanner, String prompt){
         String input = scanner.nextLine();
 
-        if(Objects.equals(input, "Add Friend") || Objects.equals(input, "1")){
+        if(Objects.equals(input, "1")){
             System.out.println("Who would you like to add?\n" + users);
             input = scanner.nextLine();
             addFriend(currentUser, input);
-        }else if(Objects.equals(input, "Display Profile") || Objects.equals(input, "2")){
+        }else if(Objects.equals(input, "2")){
             System.out.println("Display which profile:\n" + users);
             input = scanner.nextLine();
             displayProfile(input);
-        }else if(Objects.equals(input, "Display All Profiles") || Objects.equals(input, "3")){
+        }else if(Objects.equals(input, "3")){
             bfs(currentUser);
-        }else if(Objects.equals(input, "Display All Users") || Objects.equals(input, "4")){
+        }else if(Objects.equals(input, "4")){
             displayUsers();
-        }else if(Objects.equals(input, "View Friends") || Objects.equals(input, "5")){
+        }else if(Objects.equals(input, "5")){
             displayFriendsList(currentUser);
-        }else if(input == "Change Status" || input == "6"){
+        }else if(Objects.equals(input, "6")){
+            System.out.println(prompt);
+//            input = scanner.nextLine();
             setStatus(scanner);
-        }else if(Objects.equals(input, "Delete Account") || Objects.equals(input, "7")){
+        }else if(Objects.equals(input, "7")){
             removeUser(currentUser);
             logOut();
-        }else if(Objects.equals(input, "Log Out") || Objects.equals(input, "8")){
+        }else if(Objects.equals(input, "8")){
             logOut();
         }
     }

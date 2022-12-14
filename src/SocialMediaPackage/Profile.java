@@ -86,7 +86,7 @@ public class Profile {
         if(friendsList.isEmpty()){
             System.out.println("No Friends");
         }else{
-            System.out.println(friendsList);
+            System.out.println("Friends: " + friendsList);
         }
     }
 
